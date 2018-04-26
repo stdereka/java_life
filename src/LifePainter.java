@@ -2,8 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.*;
 import java.util.concurrent.*;
 
 
@@ -90,15 +89,11 @@ public class LifePainter extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    FileReader fr = new FileReader("/home/caladrius/IdeaProjects/Life/src/field");
-                    for (int i = 0; i < 23; i++) {
-                        for (int j = 0; j < 23; j++) {
-                            char sym = (char) fr.read();
-                            buttonGrid.grid[i][j].setText(sym + "");
-                            buttonGrid.lifeEngine.field[i + 1][j + 1] = sym;
-                        }
-                        int nonce = fr.read();
-                    }
+                    FileInputStream fis = new FileInputStream("field");
+                    ObjectInputStream ois = new ObjectInputStream(fis);
+                    buttonGrid.lifeEngine.field = (char[][]) ois.readObject();
+                    ois.close();
+                    refreshGrid();
                 }catch(Exception e1){
                     System.out.println("File exception!");
                 }
@@ -114,16 +109,11 @@ public class LifePainter extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    FileWriter fw = new FileWriter("/home/caladrius/IdeaProjects/Life/src/field");
-                    for (int i = 0; i < 23; i++) {
-                        for (int j = 0; j < 23; j++) {
-                            char sym = buttonGrid.lifeEngine.field[i + 1][j + 1];
-                            fw.write((int)sym);
-                        }
-                        fw.write((int)'\n');
-                    }
-                    fw.flush();
-                    fw.close();
+                    FileOutputStream fos = new FileOutputStream("field");
+                    ObjectOutputStream oos = new ObjectOutputStream(fos);
+                    oos.writeObject(buttonGrid.lifeEngine.field);
+                    oos.close();
+                    refreshGrid();
                 }catch (Exception e1){
                     System.out.println("File exception!");
                 }
