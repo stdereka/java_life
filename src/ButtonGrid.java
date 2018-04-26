@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 
 public class ButtonGrid extends JPanel{
@@ -25,17 +23,13 @@ public class ButtonGrid extends JPanel{
                 final int x_ = x;
                 final int y_ = y;
 
-                grid[x][y].addActionListener(new ActionListener(){
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        if (grid[x_][y_].getText().equals("*")){
-                            grid[x_][y_].setText(".");
-                            lifeEngine.field[x_+1][y_+1] = '.';
-                        }
-                        else{
-                            grid[x_][y_].setText("*");
-                            lifeEngine.field[x_+1][y_+1] = '*';
-                        }
+                grid[x][y].addActionListener(e -> {
+                    if (grid[x_][y_].getText().equals("*")){
+                        grid[x_][y_].setText(".");
+                        lifeEngine.field[x_+1][y_+1] = '.';
+                    }else{
+                        grid[x_][y_].setText("*");
+                        lifeEngine.field[x_+1][y_+1] = '*';
                     }
                 });
 

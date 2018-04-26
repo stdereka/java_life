@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.concurrent.*;
 
@@ -31,26 +29,20 @@ public class LifePainter extends JFrame{
 
         updateExecutor = Executors.newSingleThreadScheduledExecutor();
 
-        oneIteration = new Runnable(){
-            @Override
-            public void run() {
-                buttonGrid.lifeEngine.update();
-                refreshGrid();
-            }
+        oneIteration = () -> {
+            buttonGrid.lifeEngine.update();
+            refreshGrid();
         };
 
         JButton start = new JButton("start");
         start.setBackground(Color.darkGray);
         start.setForeground(Color.green);
         start.setFocusPainted(false);
-        start.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e){
-                if (!isRunning) {
-                    isRunning = true;
-                    updateExecutor = Executors.newSingleThreadScheduledExecutor();
-                    updateExecutor.scheduleAtFixedRate(oneIteration, 0, 500, TimeUnit.MILLISECONDS);
-                }
+        start.addActionListener(e -> {
+            if (!isRunning) {
+                isRunning = true;
+                updateExecutor = Executors.newSingleThreadScheduledExecutor();
+                updateExecutor.scheduleAtFixedRate(oneIteration, 0, 500, TimeUnit.MILLISECONDS);
             }
         });
         buttonsPanel.add(start);
@@ -59,12 +51,9 @@ public class LifePainter extends JFrame{
         stop.setBackground(Color.darkGray);
         stop.setForeground(Color.red);
         stop.setFocusPainted(false);
-        stop.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e){
-                isRunning = false;
-                updateExecutor.shutdown();
-            }
+        stop.addActionListener(e -> {
+            isRunning = false;
+            updateExecutor.shutdown();
         });
         buttonsPanel.add(stop);
 
@@ -72,12 +61,9 @@ public class LifePainter extends JFrame{
         reset.setBackground(Color.darkGray);
         reset.setForeground(Color.blue);
         reset.setFocusPainted(false);
-        reset.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e){
-                isRunning = false;
-                resetGrid();
-            }
+        reset.addActionListener(e -> {
+            isRunning = false;
+            resetGrid();
         });
         buttonsPanel.add(reset);
 
@@ -85,40 +71,14 @@ public class LifePainter extends JFrame{
         load.setBackground(Color.darkGray);
         load.setForeground(Color.yellow);
         load.setFocusPainted(false);
-        load.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    FileInputStream fis = new FileInputStream("field");
-                    ObjectInputStream ois = new ObjectInputStream(fis);
-                    buttonGrid.lifeEngine.field = (char[][]) ois.readObject();
-                    ois.close();
-                    refreshGrid();
-                }catch(Exception e1){
-                    System.out.println("File exception!");
-                }
-            }
-        });
+        load.addActionListener(e -> load());
         buttonsPanel.add(load);
 
         JButton save = new JButton("save");
         save.setBackground(Color.darkGray);
         save.setForeground(Color.yellow);
         save.setFocusPainted(false);
-        save.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    FileOutputStream fos = new FileOutputStream("field");
-                    ObjectOutputStream oos = new ObjectOutputStream(fos);
-                    oos.writeObject(buttonGrid.lifeEngine.field);
-                    oos.close();
-                    refreshGrid();
-                }catch (Exception e1){
-                    System.out.println("File exception!");
-                }
-            }
-        });
+        save.addActionListener(e -> save());
         buttonsPanel.add(save);
 
         mainPanel.add(buttonsPanel, BorderLayout.NORTH);
@@ -143,6 +103,33 @@ public class LifePainter extends JFrame{
             }
         }
     }
+
+
+    public void save(){
+        try {
+            FileOutputStream fos = new FileOutputStream("field");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(buttonGrid.lifeEngine.field);
+            oos.close();
+            refreshGrid();
+        }catch (Exception e1){
+            System.out.println("File exception!");
+        }
+    }
+
+
+    public void load(){
+        try {
+            FileInputStream fis = new FileInputStream("field");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            buttonGrid.lifeEngine.field = (char[][]) ois.readObject();
+            ois.close();
+            refreshGrid();
+        }catch(Exception e1){
+            System.out.println("File exception!");
+        }
+    }
+
 
     public static void main(String[] args){
         JFrame frame = new LifePainter();
