@@ -107,12 +107,12 @@ public class LifePainter extends JFrame{
 
     public void save(){
         try {
-            FileOutputStream fos = new FileOutputStream("field");
+            FileOutputStream fos = new FileOutputStream("src/field");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(buttonGrid.lifeEngine.field);
             oos.close();
             refreshGrid();
-        }catch (Exception e1){
+        }catch (Exception e){
             System.out.println("File exception!");
         }
     }
@@ -120,12 +120,12 @@ public class LifePainter extends JFrame{
 
     public void load(){
         try {
-            FileInputStream fis = new FileInputStream("field");
+            FileInputStream fis = new FileInputStream("src/field");
             ObjectInputStream ois = new ObjectInputStream(fis);
             buttonGrid.lifeEngine.field = (char[][]) ois.readObject();
             ois.close();
             refreshGrid();
-        }catch(Exception e1){
+        }catch(Exception e){
             System.out.println("File exception!");
         }
     }

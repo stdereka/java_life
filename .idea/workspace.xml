@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d9ebeae5-d894-4dcb-b86e-7ab59bc1b70c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/field" afterPath="$PROJECT_DIR$/field" />
-      <change beforePath="$PROJECT_DIR$/src/ButtonGrid.java" afterPath="$PROJECT_DIR$/src/ButtonGrid.java" />
+      <change beforePath="$PROJECT_DIR$/field" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/LifePainter.java" afterPath="$PROJECT_DIR$/src/LifePainter.java" />
+      <change beforePath="$PROJECT_DIR$/src/field" afterPath="$PROJECT_DIR$/src/field" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,7 +20,7 @@
       <file leaf-file-name="LifeEngine.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/LifeEngine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1224">
+            <state relative-caret-position="988">
               <caret line="72" column="0" lean-forward="true" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
               <folding />
             </state>
@@ -30,8 +30,8 @@
       <file leaf-file-name="LifePainter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/LifePainter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="816">
-              <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+            <state relative-caret-position="478">
+              <caret line="142" column="0" lean-forward="true" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -42,8 +42,8 @@
       <file leaf-file-name="ButtonGrid.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ButtonGrid.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+            <state relative-caret-position="478">
+              <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -326,7 +326,14 @@
       <option name="project" value="LOCAL" />
       <updated>1524729377070</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Some fixes">
+      <created>1524731161078</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1524731161079</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -367,7 +374,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ObjectStream" />
-    <option name="LAST_COMMIT_MESSAGE" value="ObjectStream" />
+    <MESSAGE value="Some fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -494,28 +502,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/LifeEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1224">
-          <caret line="72" column="0" lean-forward="true" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ButtonGrid.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        <state relative-caret-position="478">
+          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/LifeEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="988">
+          <caret line="72" column="0" lean-forward="true" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/LifePainter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="48" column="0" lean-forward="true" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+        <state relative-caret-position="478">
+          <caret line="142" column="0" lean-forward="true" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
